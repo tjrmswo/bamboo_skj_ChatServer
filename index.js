@@ -12,7 +12,11 @@ const app = express();
 // CORS 및 미들웨어 설정
 app.use(
   cors({
-    origin: [process.env.DEPLOY_ADDRESS, process.env.LOCAL_ADDRESS],
+    origin: [
+      process.env.DEPLOY_ADDRESS,
+      process.env.LOCAL_ADDRESS,
+      process.env.BE_DEPLOY_ADDRESS,
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
@@ -40,7 +44,7 @@ io.on('connection', (socket) => {
 
 // 기본 경로 확인
 app.get('/', (req, res) => {
-  res.send(`Server is running on port:${PORT}`);
+  res.send(`Server is running on port:${process.env.PORT}`);
 });
 
 // 라우터 설정

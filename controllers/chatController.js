@@ -80,7 +80,7 @@ const getChats = async (req, res) => {
       res.status(405).json({ message: `Method ${req.method} Not Allowed` });
     }
   } catch (error) {
-    console.error('Error fetching chat data:', error);
+    console.error('Error fetching data:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
@@ -139,7 +139,7 @@ const getUserChats = async (req, res) => {
         .json({ success: false, message: `Method ${req.method} Not Allowed` });
     }
   } catch (error) {
-    console.error('Error fetching chat data:', error);
+    console.error('Error fetching data:', error);
     res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 };

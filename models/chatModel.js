@@ -45,7 +45,6 @@ const chat = {
       'SELECT * FROM chat WHERE senderID = ? OR receiverID = ?',
       [userID, userID]
     );
-
     return myChat;
   },
 };
