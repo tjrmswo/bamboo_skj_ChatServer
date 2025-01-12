@@ -31,7 +31,12 @@ const server = app.listen(process.env.PORT, () => {
 });
 
 const io = new Server(server, {
-  path: '/api/socket/io',
+  path: '/api/socket/io', // 경로를 명시적으로 지정
+  cors: {
+    origin: [process.env.DEPLOY_ADDRESS, process.env.BE_DEPLOY_ADDRESS],
+    methods: ['GET', 'POST'],
+    credentials: true,
+  },
 });
 
 // Socket.IO 이벤트 핸들러
